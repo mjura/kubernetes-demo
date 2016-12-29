@@ -30,7 +30,7 @@ glance image-create --name sles-openstack-magnum-kubernetes \
                     --file ./sles-openstack-magnum-kubernetes.x86_64.qcow2
 ```
 
-Import SSH key from controller node to use with the baymodel
+Import SSH key from controller node to use with the cluster template
 ```
 nova keypair-add --pub-key ~/.ssh/id_rsa.pub default
 ```
@@ -42,7 +42,7 @@ nova flavor-create --is-public true m1.magnum 9 1024 10 1
 
 ## Prepare OpenStack Magnum and deploy Kubernetes cluster
 
-Create baymodel
+Create cluster template
 ```
 magnum cluster-template-create --name k8s_template \
                        --image-id sles-openstack-magnum-kubernetes \
@@ -58,7 +58,7 @@ magnum cluster-template-create --name k8s_template \
                        --tls-disabled
 ```
 
-Create a bay with one `kube-master` node and one `kube-minion` node
+Create a cluster with one `kube-master` node and one `kube-minion` node
 ```
 magnum cluster-create --name k8s_cluster --cluster-template k8s_template --master-count 1 --node-count 2
 ```
