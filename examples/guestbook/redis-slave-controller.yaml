@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: worker
-        image: docker-testing-registry.suse.de/mjura/redis-slave
+        image: docker.io/mjura/redis-slave
         ports:
         - containerPort: 6379

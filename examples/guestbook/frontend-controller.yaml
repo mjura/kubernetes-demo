@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: docker-testing-registry.suse.de/mjura/guestbook
+        image: docker.io/mjura/guestbook
         ports:
         - containerPort: 80
